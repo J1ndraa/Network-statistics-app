@@ -1,0 +1,34 @@
+.TH isa-top 1 18.11.2024
+.SH NAME
+isa-top \- v terminálovém okně zobrazí aktuální přenosové rychlosti pro jednotlivé komunikující IP adresy.
+.SH SYNOPSIS
+.B isa-top
+\fB\-i\fR \fIinterface\fR
+[\fB\-s\fR \fIb|p\fR]
+[\fB\-t\fR \fItimeout\fR]
+.SH DESCRIPTION
+.B isa-top
+Program po spuštění začne zachytávat provoz na síťovém rozhraní a počítat přenosovou rychlost pro jednotlivá zachycená spojení. Program funguje jako konzolová aplikace. Statistiky jsou zobrazeny pomocí knihovny ncurses.h do terminálového okna(Je vyžadována větší velikost terminálového okna pro korektní zobrazení celého výstupu).
+Argument \fIinterface\fR je povinný, obsahuje jméno síťového rozhraní, na kterém bude zachytáván provoz.
+.SH OPTIONS
+.TP
+.BR \-s
+(sort) Možnost řazení výstupu. Jsou přístupné pouze dvě hodnoty. "\fIb\fR" = řazení podle počtu vyměněných bytů, "\fIp\fR" = řazení podle počtu vyměněných paketů. Bez uvedení argumentu se výstup řadí podle bytů.
+.TP
+.BR \-t
+(timeout) Časový interval pro obnovu statistik, v sekundách. Bez uvedení argumentu je tento interval obnovy roven jedné sekundě.
+.SH EXIT STATUS
+0 - OK
+.TP
+1 - ERROR
+.TP
+2 - Přijat signál přerušení
+.SH EXAMPLES
+"./isa-top -i interface_name -s b -t 2"
+.SH AUTHORS
+Halva Jindřich, student FIT VUT v Brně (xhalva05)
+.SH FILES
+Seznam odevzdaných souborů: isa-top.cpp, Makefile, isa-top.1, manual.pdf
+.SH SEE ALSO
+Dokumentace "manual.pdf" přiložená k odevzdávaným souborům.
+
